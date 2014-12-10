@@ -14,4 +14,10 @@ describe Van do
 		bike.move!
 		expect(bike).to be_moved
 	end
+
+	it "should move a bike when it's fixed" do
+		bike.fix!
+		bike.move!
+		expect(bike).to be_moved
+	end
 end

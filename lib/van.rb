@@ -7,9 +7,15 @@ class Van
 		self.capacity = options.fetch(:capacity, capacity)
 	end
 
-	def move(bike)
+	def move_broken(bike)
 		bike.break!
 		bike.release
 		bike.move!
+	end
+
+	def move_fixed(bike)
+		bike.fix!
+		bike.move!
+		dock(bike)
 	end
 end 
