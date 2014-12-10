@@ -19,10 +19,16 @@ describe BikeContainer  do
 		expect "There are no bikes available"
 	end
 
-	it "should not accept something that is not a bike" do
+	it "should not release something that is not a bike" do
 		holder.dock(bike)
 		expect(holder.bike_count).to eq(1)
 		holder.release(!bike)
+		expect "I don't understand that"
+	end
+
+	it "should not dock something that is not a bike" do
+		expect(holder.bike_count).to eq(0)
+		holder.dock(!bike)
 		expect "I don't understand that"
 	end
 end

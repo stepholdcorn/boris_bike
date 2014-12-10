@@ -19,6 +19,7 @@ module BikeContainer
 	end
 
 	def dock(bike)
+		puts "I don't understand that" if bike != bike 
 		raise "Station is full" if full?
 		bikes << bike 
 	end
