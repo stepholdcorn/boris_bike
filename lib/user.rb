@@ -14,4 +14,8 @@ class User
 	def rent!
 		@bike = true
 	end
+
+	def return_bike_to(station)
+		station.dock_a_bike
+	end
 end
