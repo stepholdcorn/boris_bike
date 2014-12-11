@@ -2,24 +2,19 @@ require 'garage'
 
 describe Garage do 
 
-	let(:station) {Garage.new(:capacity => 50)}
-	let(:bike) {Bike.new}
+	let(:garage) {Garage.new(:capacity => 50)}
+	let(:bike) {double :bike, broken?: false}
+	let(:broken_bike) {double :broken_bike, broken?: true}
 	let(:holder) {ContainerHolder.new}
 
 	it "should allow setting default capacity on initialising" do
-		expect(station.capacity).to eq(50)
+		expect(garage.capacity).to eq(50)
 	end
 
 	it "should fix a bike" do
-		bike.break!
-		expect(bike).to be_broken
-		bike.fix!
-		expect(bike).not_to be_broken
-	end
-
-	it "should return the bike" do
-		expect(holder.bike_count).to eq(0)
-		holder.dock(bike)
-		expect(holder.bike_count).to eq(1)
+		puts broken_bike.inspect
+		expect(broken_bike).to receive(:fix!)
+		garage.receive(broken_bike)
+		expect(garage.bikes).to eq([broken_bike])
 	end
 end

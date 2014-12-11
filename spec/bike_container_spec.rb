@@ -4,7 +4,7 @@ class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer  do
 	
-	let(:bike) {Bike.new}
+	let(:bike) {double :bike}
 	let(:holder) {ContainerHolder.new}
 
 	it "should accept a bike" do

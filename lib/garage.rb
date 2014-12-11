@@ -8,9 +8,8 @@ class Garage
 		self.capacity = options.fetch(:capacity, capacity)
 	end
 
-	def fix(bike)
+	def receive(bike)
 		bike.fix!
 		dock(bike)
 	end
-
 end
