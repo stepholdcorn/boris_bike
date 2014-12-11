@@ -20,10 +20,10 @@ describe User do
 		expect(user).to have_bike
 	end
 
-	# it "can break the bike" do
-	# 	allow(bike).to receive(:break!)
-	# 	expect(user).to break_bike
-	# end
+	it "can fall off the bike and break it" do
+		expect(bike).to receive(:break)
+		user.fall!(bike)
+	end
 
 	it "should return the bike to a station" do
 		old_street = double :station

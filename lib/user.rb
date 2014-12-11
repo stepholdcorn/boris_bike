@@ -22,4 +22,8 @@ class User
 	def return_bike!
 		@bike = nil
 	end
+
+	def fall!(bike)
+		bike.break
+	end
 end
