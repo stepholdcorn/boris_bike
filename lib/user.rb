@@ -1,6 +1,6 @@
 class User
 	def initialize
-		@bike = nil
+		return_bike!()
 	end
 
 	def has_bike?
@@ -17,5 +17,9 @@ class User
 
 	def return_bike_to(station)
 		station.dock_a_bike
+	end
+
+	def return_bike!
+		@bike = nil
 	end
 end

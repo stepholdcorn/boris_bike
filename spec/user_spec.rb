@@ -31,4 +31,8 @@ describe User do
 		user.return_bike_to(old_street)
 	end
 
+	it "should not have a bike after returning it" do
+		user.return_bike!
+		expect(user).not_to have_bike
+	end
 end
