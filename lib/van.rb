@@ -8,14 +8,10 @@ class Van
 	end
 
 	def move_broken(bike)
-		bike.break!
-		bike.release
-		bike.move!
+		bike.move
 	end
 
 	def move_fixed(bike)
-		bike.fix!
-		bike.move!
-		dock(bike)
+		bike.move
 	end
 end 

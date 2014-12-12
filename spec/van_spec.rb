@@ -2,22 +2,26 @@ require 'van'
 
 describe Van do 
 
-	let(:station) {Van.new(:capacity => 10)}
-	let(:bike) {Bike.new}
+	let(:van) {Van.new(:capacity => 10)}
+	let(:bike) {double :bike}
 
 	it "should allow setting default capacity on initialising" do
-		expect(station.capacity).to eq(10)
+		expect(van.capacity).to eq(10)
 	end
 
-	it "should move a bike when it's broken" do
-		bike.break!
-		bike.move!
-		expect(bike).to be_moved
+	# it "should move a bike when it's fixed" do
+	# 	bike.fix!
+	# 	bike.move!
+	# 	expect(bike).to be_moved
+	# end
+
+	it "should move a bike when it is broken" do
+		expect(bike).to receive(:move)
+		van.move_broken(bike)
 	end
 
-	it "should move a bike when it's fixed" do
-		bike.fix!
-		bike.move!
-		expect(bike).to be_moved
+	it "should move a bike when it is fixed" do
+		expect(bike).to receive(:move)
+		van.move_fixed(bike)
 	end
 end
